@@ -1,0 +1,9 @@
+# app/views/welcome/index.html.erb
+
+<h1>Index Page</h1>
+
+<%= link_to image_tag("http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_small.png"), '/auth/steam' %>
+
+<h1><%= @test %></h1>
+<%= text_field_tag :playerSearch %>
+    <%= submit_tag "Search" %>

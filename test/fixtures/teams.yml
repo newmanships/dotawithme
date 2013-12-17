@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  rank: 1
+  description: MyText
+  location: MyString
+  language: MyString
+  defaultMessage: MyText
+  leaderSteamID: MyString
+
+two:
+  name: MyString
+  rank: 1
+  description: MyText
+  location: MyString
+  language: MyString
+  defaultMessage: MyText
+  leaderSteamID: MyString

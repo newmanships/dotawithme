@@ -1,0 +1,13 @@
+<h1><%= @accountID.inspect %> Stats</h1>
+<% if session.key? :current_user %>
+<h3>Current user:</h3>
+<%= image_tag session[:current_user][:image] %>
+<p><%= session[:current_user][:nickname] %></p>
+<p><%= session[:current_user][:uid] %></p>
+<% end %>
+
+<ul>
+<% @matchlist.each do |match| %>
+<li><%= Date.strptime(match['start_time'].to_s, '%s').to_formatted_s(:rfc822) %> - <%= match['match_id'] %></li>
+<% end %>
+</ul>

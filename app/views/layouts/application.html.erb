@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dotawithme</title>
+  
+  <%= stylesheet_link_tag    "cyborg", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "cyborg", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+  <div id='wrapper'> 
+  <% content_for :sidebar do %>
+  <!-- sidebar content specific to this page -->
+    Google sucks
+<% end %>
+  <div id='content'> 
+    <%= yield %> 
+  </div> 
+</div> 
+
+</body>
+</html>

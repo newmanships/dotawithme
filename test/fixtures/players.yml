@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  one: false
+  two: false
+  three: false
+  four: false
+  five: false
+  rank: 1
+  language: MyString
+  location: MyString
+  playerSteamID: MyString
+  username: MyString
+
+two:
+  one: false
+  two: false
+  three: false
+  four: false
+  five: false
+  rank: 1
+  language: MyString
+  location: MyString
+  playerSteamID: MyString
+  username: MyString
