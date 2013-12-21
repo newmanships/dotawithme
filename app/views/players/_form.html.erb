@@ -1,5 +1,7 @@
 <div class="page-header">
+  <div class="alignleft">
 <%= image_tag('rsz_dotawithme.png') %>
+  </div>
 </div>
 <div class="row">
   <div class="span12">
@@ -59,6 +61,7 @@
     <%= f.text_field :email, :class => 'entry-form' %>
     </div>
   </div>
+    <br>
     <p>Email address is optional and only used to send info on the team that has added you.</p>
     <%= f.hidden_field :playerSteamID, :value => session[:current_user][:uid] %>
     <div class="controls">
