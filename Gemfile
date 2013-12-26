@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -62,3 +61,5 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+ruby "2.0.0"
