@@ -43,7 +43,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 # for pushing to heroku
-gem 'rails_12factor', group: :production
+group :production, :staging do
+      gem 'pg'
+      gem 'rails_12factor'
+    end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
