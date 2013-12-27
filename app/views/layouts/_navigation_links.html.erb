@@ -4,7 +4,7 @@
 <li><%= link_to 'About', main_about_path %></li> 
 <li><%= link_to 'Contact', main_contact_path %></li> 
 <li><% if session.key? :current_user %>
-    <%= link_to 'Sign Out', main_logout_path %>
+    <%= link_to 'Sign Out', main_logout_path%>
   <% else %>
   <%= link_to image_tag("http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_small.png"), '/auth/steam' %>
   <% end %>

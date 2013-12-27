@@ -1,12 +1,15 @@
+<style>
+  body {
+    padding-top: 60px;
+  }
+</style>
+
 <div class="page-header">
 
   <div class="align-right">  
+    
 <%- model_class = Player -%>
-  <% if session.key? :current_user %>
-    <%= button_to 'Sign Out', main_logout_path, :class => 'btn btn-primary' %>
-  <% else %>
-  <%= link_to image_tag("http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_small.png"), '/auth/steam' %>
-  <% end %>
+ 
   </div>
 </div>
 <div class="contentwrapper">

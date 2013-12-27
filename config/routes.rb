@@ -12,7 +12,7 @@ Dotawithme::Application.routes.draw do
 #  get "main/stats"
   root 'players#index'
   #root players_path
-  post "main/logout"
+  get "main/logout"
   
   
 #  get "dotawithme/index"
