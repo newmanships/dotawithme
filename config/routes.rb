@@ -6,6 +6,8 @@ Dotawithme::Application.routes.draw do
   get "main/index"
   get "main/stats"
   get "main/mystats"
+  get "main/about"
+  get "main/contact"
   post 'auth/steam/callback' => 'main#auth_callback'
 #  get "main/stats"
   root 'players#index'

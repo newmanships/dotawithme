@@ -41,6 +41,12 @@ class MainController < ApplicationController
     else 
     redirect_to players_path
     end
+  def about
+  end
+
+  def contact
+  end
+
   end
 
 end
