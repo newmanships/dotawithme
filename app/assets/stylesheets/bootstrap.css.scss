@@ -53,8 +53,14 @@ body {
 }
 @media (max-width: 979px) {
   body {
-    padding-top: 0px;
+    padding-top: 60px;
   }
+}
+
+.center {
+     float: none;
+     margin-left: auto;
+     margin-right: auto;
 }
 
 a:focus {
