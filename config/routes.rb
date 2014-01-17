@@ -2,17 +2,19 @@ Dotawithme::Application.routes.draw do
   resources :players
 
   resources :teams
-
+  
+  
   get "main/index"
   get "main/stats"
   get "main/mystats"
   get "main/about"
-  get "main/contact"
+  get "main/contact" 
   post 'auth/steam/callback' => 'main#auth_callback'
 #  get "main/stats"
   root 'players#index'
   #root players_path
   get "main/logout"
+  
   
   
 #  get "dotawithme/index"

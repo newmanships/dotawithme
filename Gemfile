@@ -3,8 +3,12 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
+gem 'language_list'
 # use Steam OpenID Omniauth gem for authenticating Steam users
 gem 'omniauth-steam'
+
+#Contact form gem
+gem 'contact_us', github: 'jdutil/contact_us'
 
 gem 'figaro'
 
