@@ -87,6 +87,6 @@ respond_to :js, :html
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_params
-      params.require(:player).permit(:one, :two, :three, :four, :five, :rank, :language, :location, :playerSteamID, :username, :email)
+      params.require(:player).permit(:one, :two, :three, :four, :five, :rank, :language, :location, :solommr, :playerSteamID, :username, :email)
     end
 end

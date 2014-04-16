@@ -8,7 +8,7 @@
 
   <div class="align-right">  
     
-<%- model_class = Player -%>
+<%= model_class = Player %>
  
   </div>
 
@@ -25,6 +25,7 @@
       <th><%= link_to model_class.human_attribute_name(:Hard_Support), "http://dotawithme.com/players?five=true" %></th>
       <th><%= model_class.human_attribute_name(:language) %></th>
       <th><%= model_class.human_attribute_name(:location) %></th>
+      <th><%= model_class.human_attribute_name(:solommr) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -40,7 +41,7 @@
         <td><% if player.five? %><%= image_tag('checkmark.png')  %><% else %> <%= image_tag('redx.png') %><% end %></td>
         <td><%= player.language.titleize %></td>
         <td><%= player.location.titleize %></td>
-        <td><%= player.solommr.titleize %></td>
+        <td><%= player[:solommr] %></td>
         <td>
         
           <% if session.key? :current_user and session[:current_user][:uid] == player.playerSteamID %>
