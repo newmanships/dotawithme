@@ -40,6 +40,7 @@
         <td><% if player.five? %><%= image_tag('checkmark.png')  %><% else %> <%= image_tag('redx.png') %><% end %></td>
         <td><%= player.language.titleize %></td>
         <td><%= player.location.titleize %></td>
+        <td><%= player.solommr.titleize %></td>
         <td>
         
           <% if session.key? :current_user and session[:current_user][:uid] == player.playerSteamID %>

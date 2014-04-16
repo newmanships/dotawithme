@@ -14,6 +14,7 @@ Dotawithme::Application.routes.draw do
   root 'players#index'
   #root players_path
   get "main/logout"
+  get '/contact', :to => redirect('/contact-us')
   
   
   
