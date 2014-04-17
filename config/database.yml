@@ -18,11 +18,11 @@ development:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: d8fe9sa4f1gdsa
-  username: zzbwmxanibgwsj
-  password: eykKJPNhX7kBbPMcgKRVfJcqyU
-  host: ec2-184-73-175-240.compute-1.amazonaws.com
-  port: 5432
+  database: dotawithme_development
+  username: 
+  password: 
+  host: localhost
+  
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -49,18 +49,16 @@ test:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: d8fe9sa4f1gdsa
-  username: zzbwmxanibgwsj
-  password: eykKJPNhX7kBbPMcgKRVfJcqyU
-  host: ec2-184-73-175-240.compute-1.amazonaws.com
-  port: 5432
+  database: dotawithme_test
+  username: 
+  password: 
+  host: localhost
 
 production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: d8fe9sa4f1gdsa
-  username: zzbwmxanibgwsj
-  password: eykKJPNhX7kBbPMcgKRVfJcqyU
-  host: ec2-184-73-175-240.compute-1.amazonaws.com
-  port: 5432
+  database: dotawithme_production
+  username: 
+  password: 
+  host: localhost
