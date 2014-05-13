@@ -19,9 +19,8 @@
 </head>
 <body>
    
-  <%= render 'layouts/navigation_links' %>
   
- <center> <h1>DOTA WITH ME</h1></center> 
+ 
   
   <div id='wrapper'> 
   <% content_for :sidebar do %>
@@ -34,6 +33,8 @@
         <div class="span2"></div>
      <div class="span8">
         <div id='content'> 
+          <center> <h1>DOTA WITH ME</h1> <%= render 'layouts/navigation_links' %></center> 
+ 
     <%= yield %> 
   </div> 
        </div>
