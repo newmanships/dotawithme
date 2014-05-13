@@ -1,11 +1,15 @@
 <%# add navigation links to this file %>
 
-<li><%= link_to image_tag('rsz_dotawithme.png'), root_path %></li>
-<li><%= link_to 'About', main_about_path %></li> 
-<li><%= link_to 'Contact', "/contact" %></li> 
-<li><% if session.key? :current_user %>
+<%# <li><%= link_to image_tag('rsz_dotawithme.png'), root_path %></li> 
+
+<p style="text-align: right; padding-right: 20px">
+  <%= link_to 'Home', root_path %><br>
+<%= link_to 'About', main_about_path %><br>
+<%= link_to 'Contact', "/contact" %><br>
+<% if session.key? :current_user %>
     <%= link_to 'Sign Out', main_logout_path%>
   <% else %>
   <%= link_to image_tag("http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_small.png"), '/auth/steam' %>
   <% end %>
-</li>
+
+</p>

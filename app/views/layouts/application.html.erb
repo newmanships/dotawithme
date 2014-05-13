@@ -6,21 +6,41 @@
   <%= stylesheet_link_tag    "cyborg", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "cyborg", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-  <%= render 'layouts/navigation' %>
+  <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Peralta', type='text/css' %>
+  
+  <style>
+     h1 {
+      font-family: 'Peralta', serif;
+      font-size: 56px;
+      color: #0099CC;
+     }
+</style>
   
 </head>
 <body>
-
-
+   
+  <%= render 'layouts/navigation_links' %>
+  
+ <center> <h1>DOTA WITH ME</h1></center> 
+  
   <div id='wrapper'> 
   <% content_for :sidebar do %>
   <!-- sidebar content specific to this page -->
     
 <% end %>
-  <div id='content'> 
+    
+    <div class="container">
+      <div class="row">
+        <div class="span2"></div>
+     <div class="span8">
+        <div id='content'> 
     <%= yield %> 
   </div> 
+       </div>
+        <div class="span2"></div>
 </div> 
+    </div>
+    </div>
 <footer>
   <%= render 'layouts/footer' %>
   </footer>
