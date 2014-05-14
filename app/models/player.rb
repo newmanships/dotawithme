@@ -10,5 +10,7 @@ class Player < ActiveRecord::Base
   scope :three, -> { where(:three => true) }
   scope :four, -> { where(:four => true) }
   scope :five, -> { where(:five => true) }
+  scope :by_language, -> language { where(:language => language) }
+  scope :by_location, -> location { where(:location => location) }
   
 end
