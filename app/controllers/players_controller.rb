@@ -11,7 +11,7 @@ respond_to :js, :html
   
   #Steam ID - 76561197960265728  = 32 bit ID that is referenced in API, should have stored this fml..
   def index
-    @players = apply_scopes(Player.all.paginate(:page => params[:page], :per_page => 10)).all
+    @players = apply_scopes(Player.all.paginate(:page => params[:page], :per_page => 20)).all
 
    
   #<td><%= link_to player.username, :controller => 'main', :action => 'stats', :accountID => player.playerSteamID %></td>
