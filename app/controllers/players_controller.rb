@@ -14,7 +14,7 @@ respond_to :js, :html
   
   #Steam ID - 76561197960265728  = 32 bit ID that is referenced in API, should have stored this fml..
   def index
-    @players = apply_scopes(Player.all.paginate(:page => params[:page], :per_page => 20)).all
+    @players = apply_scopes(Player.all.paginate(:page => params[:page], :order => 'created_at DESC', :per_page => 20)).all
    
    
   
@@ -26,8 +26,9 @@ respond_to :js, :html
 
   # GET /players/1
   # GET /players/1.json
-  # def show
-  # end
+   def show
+     @players = apply_scopes(Player.all.paginate(:page => params[:page], :per_page => 20)).all
+   end
 
   # GET /players/new
   def new

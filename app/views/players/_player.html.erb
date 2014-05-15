@@ -1,28 +1,21 @@
-<% model_class = Player %>
+<%= player %>
 
-<style>
-  body {
-    padding-top: 80px;
-  }
-</style>
-
-  <div class="align-right">  
-    
-  </div>
+<%= player.language.titleize %>
+<%= player.username %>
 
 <div class="contentwrapper">
 <div class="contentcolumn">
   <table class="table">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:username) %></th>
-      <th><%= link_to model_class.human_attribute_name(:Carry), "http://dotawithme.com/players?one=true" %></th>
-      <th><%= link_to model_class.human_attribute_name(:Mid), "http://dotawithme.com/players?two=true" %></th>
-      <th><%= link_to model_class.human_attribute_name(:Offlane), "http://dotawithme.com/players?three=true" %></th>
-      <th><%= link_to model_class.human_attribute_name(:Jungle), "http://dotawithme.com/players?four=true" %></th>
-      <th><%= link_to model_class.human_attribute_name(:Support), "http://dotawithme.com/players?five=true" %></th>
-      <th><%= model_class.human_attribute_name(:language) %></th>
-      <th><%= model_class.human_attribute_name(:location) %></th>
+      <th><%= player.username %></th>
+      <th>Carry</th>
+      <th>Mid</th>
+      <th>Offlane</th>
+      <th>Jungle</th>
+      <th>Support</th>
+      <th>Language</th>
+      <th>Location</th>
       <th>Solo MMR</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -30,7 +23,6 @@
   <tbody>
     
     <% @players.each do |player| %>
-    
       <tr>
         <td><%= link_to player.username.titleize, "http://dotabuff.com/players/" + player.playerSteamID %></td>
         <td><% if player.one? %><%= image_tag('checkmark.png')  %><% else %> <%= image_tag('redx.png') %><% end %></td>
@@ -60,23 +52,3 @@
   </tbody>
    
 </table>
-
-<div class="contentwrapper">  
-  <%= link_to "New Listing",
-            new_player_path,
-            :class => 'btn btn-primary' %>
-<div class="align-right1">
-  <%= will_paginate @players %>
-</div>
-  </div>  
-</div>
-</div>
-
-<% if false %>
-<div class="sidebar">
-    <%= yield :sidebar %>
-      
-</div> 
-<% end %>
-
-  

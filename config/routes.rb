@@ -1,4 +1,6 @@
 Dotawithme::Application.routes.draw do
+  resources :searches
+
   resources :players
 
   resources :teams
@@ -8,13 +10,14 @@ Dotawithme::Application.routes.draw do
   get "main/stats"
   get "main/mystats"
   get "main/about"
-  get "main/contact" 
+  get "main/contact"
   post 'auth/steam/callback' => 'main#auth_callback'
 #  get "main/stats"
   root 'players#index'
   #root players_path
   get "main/logout"
   get '/contact', :to => redirect('/contact-us')
+  get '/search', :to => 'search#index'
   
   
   
