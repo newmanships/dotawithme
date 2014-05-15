@@ -2,45 +2,40 @@
   body {
     padding-top: 100px;
   }
+  th {
+    padding: 10px;
+  }
+  td {
+    padding: 10px;
+  }
 </style>
       
 <p>Check which spots in the lineup you play according to this <a href="http://www.teamliquid.net/forum/viewmessage.php?topic_id=366357">guide</a>. </p>
 <%= form_for @player, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label :Carry, :class => 'control-label' %>
+    <center>
+    <table>
+      <thead>
+        <th> <%= f.label :Carry, :class => 'control-label' %></th>
+        <th>  <%= f.label :Mid, :class => 'control-label' %></th>
+        <th> <%= f.label :Offlane, :class => 'control-label' %></th>
+        <th> <%= f.label :Jungle, :class => 'control-label' %></th>
+        <th><%= f.label :Support, :class => 'control-label' %></th>
+      </thead>
     <div class="controls">
-      <%= f.check_box :one, :class => 'text_field' %>
+      <tbody>
+        <td><%= f.check_box :one, :class => 'text_field' %></td>
+        <td><%= f.check_box :two, :class => 'text_field' %></td>
+        <td> <%= f.check_box :three, :class => 'text_field' %></td>
+        <td><%= f.check_box :four, :class => 'text_field' %></td>
+        <td> <%= f.check_box :five, :class => 'text_field' %></td>
+      </tbody>
     </div>
+      </table>
+      </center>
     <br>
   </div>
-  <div class="control-group">
-    <%= f.label :Mid, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.check_box :two, :class => 'text_field' %>
-    </div>
-    <br>
-  </div>
-  <div class="control-group">
-    <%= f.label :Offlane, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.check_box :three, :class => 'text_field' %>
-    </div>
-    <br>
-  </div>
-  <div class="control-group">
-    <%= f.label :Jungle, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.check_box :four, :class => 'text_field' %>
-    </div>
-    <br>
-  </div>
-  <div class="control-group">
-    <%= f.label :Support, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.check_box :five, :class => 'text_field' %>
-    </div>
-    <br>
-  </div>
+  
     <div class="controls">
       <%= f.hidden_field :rank, :value => '0' %>
   </div>
