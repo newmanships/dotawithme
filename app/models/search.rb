@@ -10,53 +10,17 @@ class Search < ActiveRecord::Base
   private
 
   def find_players
-    Player.find(:all, :conditions => conditions)
-  end
-
-  def one_conditions
-    ["players.one?"] unless one.blank?
-  end
-  
-  def two_conditions
-    ["players.two?"] unless two.blank?
-  end
-  
-  def three_conditions
-    ["players.three?"] unless three.blank?
-  end
-  
-  def four_conditions
-    ["players.four?"] unless four.blank?
-  end
-  
-  def five_conditions
-    ["players.five?"] unless five.blank?
-  end
-
-  
-  def language_conditions
-    ["players.language = ?", language] unless language.blank?
-  end
-  
-  def location_conditions
-    ["players.location = ?", location] unless location.blank?
-  end
-
-  def conditions
-    [conditions_clauses.join(' AND '), *conditions_options] 
-  end
-
-  def conditions_clauses
-    conditions_parts.map { |condition| condition.first }
-  end
-
-  def conditions_options
-    conditions_parts.map { |condition| condition[1..-1] }.flatten
-  end
-
-  def conditions_parts
-    private_methods(false).grep(/_conditions$/).map { |m| send(m) }.compact
-  end
+    players = Player.order(:username)
+    players = players.where("one = ?", true) if one.present?
+    players = players.where("two = ?", true) if two.present?
+    players = players.where("three = ?", true) if three.present?
+    players = players.where("four = ?", true) if four.present?
+    players = players.where("five = ?", true) if five.present?
+    players = players.where(language: language) if language.present?
+    players = players.where(location: location) if location.present?
+    players
     
-    
+  end
+
+  
 end
