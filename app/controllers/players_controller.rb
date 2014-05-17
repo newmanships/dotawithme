@@ -16,7 +16,7 @@ respond_to :js, :html
   def index
     @players = apply_scopes(Player.all.paginate(:page => params[:page], :order => 'created_at DESC', :per_page => 20)).all
    
-   
+    
   
 
    
@@ -28,6 +28,7 @@ respond_to :js, :html
   # GET /players/1.json
    def show
      @players = apply_scopes(Player.all.paginate(:page => params[:page], :per_page => 20)).all
+     
    end
 
   # GET /players/new

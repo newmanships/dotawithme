@@ -1,25 +1,10 @@
 
-
 <div class="contentwrapper">
 <div class="contentcolumn">
-  <table class="table">
-  <thead>
-    <tr>
-      <th><%= player.username %></th>
-      <th>Carry</th>
-      <th>Mid</th>
-      <th>Offlane</th>
-      <th>Jungle</th>
-      <th>Support</th>
-      <th>Language</th>
-      <th>Location</th>
-      <th>Solo MMR</th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
+
     
-    <% @players.each do |player| %>
+    
+    
       <tr>
         <td><%= link_to player.username.titleize, "http://dotabuff.com/players/" + player.playerSteamID %></td>
         <td><% if player.one? %><%= image_tag('checkmark.png')  %><% else %> <%= image_tag('redx.png') %><% end %></td>
@@ -43,9 +28,7 @@
           <%= link_to "Add Steam Friend", "steam://friends/add/" + player.playerSteamID, :class => 'btn btn-primary' %>
           <% end %>
                   
-     <% end %>
+     
           </td>
         </tr>    
-  </tbody>
-   
-</table>
+  

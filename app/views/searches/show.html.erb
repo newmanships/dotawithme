@@ -1,6 +1,22 @@
 <p id="notice"><%= notice %></p>
+<center><h2> If no results are listed please try different criteria</h2></center>
 
+ <table class="table">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Carry</th>
+      <th>Mid</th>
+      <th>Offlane</th>
+      <th>Jungle</th>
+      <th>Support</th>
+      <th>Language</th>
+      <th>Location</th>
+      <th>Solo MMR</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+   <tbody>
 <%= render :partial => @search.players %>
-
-<%= link_to 'Edit', edit_search_path(@search) %> |
-<%= link_to 'Back', searches_path %>
+   </tbody>
+   </table>
