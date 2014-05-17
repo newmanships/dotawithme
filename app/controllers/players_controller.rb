@@ -55,7 +55,7 @@ respond_to :js, :html
 
     respond_to do |format|
       if @player.save
-        format.html { redirect_to players_path, notice: 'Player was successfully created.' }
+        format.html { redirect_to players_path, notice: '' }
       else
         format.html { render action: 'new' }
         format.json { render json: @player.errors, status: :unprocessable_entity }
