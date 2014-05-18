@@ -8,6 +8,7 @@ respond_to :js, :html
     has_scope :five, :type => :boolean
     has_scope :by_language
     has_scope :by_location
+    has_scope :by_style
 
   # GET /players
   # GET /players.json
@@ -100,6 +101,6 @@ respond_to :js, :html
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_params
-      params.require(:player).permit(:one, :two, :three, :four, :five, :rank, :language, :location, :solommr, :playerSteamID, :username, :email)
+      params.require(:player).permit(:one, :two, :three, :four, :five, :rank, :language, :location, :solommr, :style, :playerSteamID, :username, :email)
     end
 end
