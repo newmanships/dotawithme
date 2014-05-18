@@ -48,7 +48,7 @@ respond_to :js, :html
   def edit
       @player = Player.find(params[:id])
       if session[:current_user][:uid] != @player[:playerSteamID]
-        redirect_to players_path(session[:current_user])
+        redirect_to root_url
       end
     
   end
