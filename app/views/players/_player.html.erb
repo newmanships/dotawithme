@@ -15,6 +15,7 @@
         <td><%= link_to player.language.titleize, root_path( player.language, :by_language => player.language) %></td>
         <td><%= link_to player.location.titleize, root_path( player.location, :by_location => player.location) %></td>
         <td><%= player[:solommr] %></td>
+        <td><%= link_to player.style.titleize, root_path( player.style, :by_style => player.style) %></td>
         <td>
         
           <% if session.key? :current_user and session[:current_user][:uid] == player.playerSteamID %>

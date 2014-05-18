@@ -18,6 +18,7 @@ class Search < ActiveRecord::Base
     players = players.where("five = ?", true) if five.present?
     players = players.where(language: language) if language.present?
     players = players.where(location: location) if location.present?
+    players = players.where(style: style) if style.present?
     
     
   end
