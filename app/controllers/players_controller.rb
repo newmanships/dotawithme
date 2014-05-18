@@ -46,6 +46,11 @@ respond_to :js, :html
 
   # GET /players/1/edit
   def edit
+      @player = Player.find(params[:id])
+      if session[:current_user][:uid] != @player[:playerSteamID]
+        redirect_to players_path(session[:current_user])
+      end
+    
   end
 
   # POST /players
