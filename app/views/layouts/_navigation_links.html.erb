@@ -6,6 +6,7 @@
 
 <%= link_to 'About', main_about_path %>
 <%= link_to 'Contact', "/contact" %>
+<%= link_to 'Teams', "/teams" %>
 <%= link_to 'Search', "/searches/new" %>
 <p><% if session.key? :current_user %>
     <%= link_to 'Sign Out', main_logout_path%>

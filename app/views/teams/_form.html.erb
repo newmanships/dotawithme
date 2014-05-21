@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :rank, :class => 'control-label' %>
+    <%= f.label 'Average MMR', :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :rank, :class => 'entry-form' %>
     </div>
@@ -20,13 +20,13 @@
   <div class="control-group">
     <%= f.label :location, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :location, :class => 'entry-form' %>
+      <%= f.select :location, options_for_select(["North America", "South America", "Asia", "Europe", "Russia", "Australia"]), {}, :class => 'entry-form' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :language, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :language, :class => 'entry-form' %>
+      <%= f.select :language, options_for_select(["English", "Spanish", "Russian", "Mandarin", "Cantonese", "Korean", "Japanese", "Arabic", "Hindi", "Ukrainian","Romanian","Portuguese", "French", "German","Malay","Indonesian","Vietnamese","Persian","Turkish","Italian","Thai","Polish","Tagalog","Khmer","Hungarian","Greek","Czech","Swedish","Belarusian", "Other"]), {}, :class => 'entry-form' %>
     </div>
   </div>
   <div class="control-group">
@@ -35,12 +35,11 @@
       <%= f.text_field :defaultMessage, :class => 'entry-form' %>
     </div>
   </div>
-  <div class="control-group">
-    <%= f.label :leaderSteamID, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :leaderSteamID, :class => 'entry-form' %>
-    </div>
-  </div>
+   <%= f.hidden_field :leaderSteamID, :value => session[:current_user][:uid] %>
+    
+    <%= f.hidden_field :username, :value => session[:current_user][:nickname] %>
+  
+
 <br>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
