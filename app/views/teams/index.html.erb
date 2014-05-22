@@ -4,16 +4,20 @@
 </div>
 
 
-<table class="table table-striped">
+<table class="table">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:rank) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th>Team Name</th>
+      <th><%= link_to model_class.human_attribute_name(:Carry), "http://dotawithme.com/players?one=true" %></th>
+      <th><%= link_to model_class.human_attribute_name(:Mid), "http://dotawithme.com/players?two=true" %></th>
+      <th><%= link_to model_class.human_attribute_name(:Offlane), "http://dotawithme.com/players?three=true" %></th>
+      <th><%= link_to model_class.human_attribute_name(:Jungle), "http://dotawithme.com/players?four=true" %></th>
+      <th><%= link_to model_class.human_attribute_name(:Support), "http://dotawithme.com/players?five=true" %></th>
+      <th>Average Team MMR</th>
       <th><%= model_class.human_attribute_name(:location) %></th>
       <th><%= model_class.human_attribute_name(:language) %></th>
-      <th><%= model_class.human_attribute_name(:defaultMessage) %></th>
       <th>Leader's Name</th>
+      <th>Type of Play</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -21,26 +25,38 @@
     <% @teams.each do |team| %>
       <tr>
         <td><%= link_to "#{team.name}", team_path(team) %></td>
+        <td><% if team.one? %><%= image_tag('checkmark.png')  %><% else %> <%= image_tag('redx.png') %><% end %></td>
+        <td><% if team.two? %><%= image_tag('checkmark.png')  %><% else %> <%= image_tag('redx.png') %><% end %></td>
+        <td><% if team.three? %><%= image_tag('checkmark.png')  %><% else %> <%= image_tag('redx.png') %><% end %></td>
+        <td><% if team.four? %><%= image_tag('checkmark.png')  %><% else %> <%= image_tag('redx.png') %><% end %></td>
+        <td><% if team.five? %><%= image_tag('checkmark.png')  %><% else %> <%= image_tag('redx.png') %><% end %></td>
         <td><%= team.rank %></td>
-        <td><%= team.description %></td>
         <td><%= team.location %></td>
-        <td><%= team.language %></td>
-        <td><%= team.defaultMessage %></td>        
+        <td><%= team.language %></td>       
         <td><%= link_to "#{team.username}", "http://dotabuff.com/players/" + team.leaderSteamID %></td>
+        <td><%= link_to team.style, root_path( team.style, :by_style => team.style) %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_team_path(team), :class => 'btn btn-mini' %>
+        
+          <% if session.key? :current_user and session[:current_user][:uid] == team.leaderSteamID %>
+          <%= link_to 'Edit', edit_team_path(team), :class => 'btn btn-primary' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       team_path(team),
+                      :title => "Remove your listing?",
                       :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Remove your listing?')) },
+                      :class => 'btn btn-mini btn-danger' %>   
+          <% else %>  
+          <%= link_to "Add Steam Friend", "steam://friends/add/" + team.leaderSteamID, :class => 'btn btn-primary' %>
+          <% end %>
+      
     <% end %>
+          </td>
+      </tr>
   </tbody>
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_team_path,
             :class => 'btn btn-primary' %>
+<h3>*Check boxes mean the position is filled.  Red 'X's mean the position is open.</h3>
+

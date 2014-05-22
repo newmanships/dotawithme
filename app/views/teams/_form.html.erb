@@ -1,20 +1,49 @@
+<style>
+  th {
+    padding: 10px;
+  }
+  td {
+    padding: 10px;
+  }
+  </style>
+<center>
+  <p>Leave boxes blank if you DO NOT have that slot filled on your team.</p>
 <%= form_for @team, :html => { :class => 'form-horizontal' } do |f| %>
+
+<table>
+      <thead>
+        <th> <%= f.label :Carry, :class => 'control-label' %></th>
+        <th>  <%= f.label :Mid, :class => 'control-label' %></th>
+        <th> <%= f.label :Offlane, :class => 'control-label' %></th>
+        <th> <%= f.label :Jungle, :class => 'control-label' %></th>
+        <th><%= f.label :Support, :class => 'control-label' %></th>
+      </thead>
+    <div class="controls">
+      <tbody>
+        <td><%= f.check_box :one, :class => 'text_field' %></td>
+        <td><%= f.check_box :two, :class => 'text_field' %></td>
+        <td> <%= f.check_box :three, :class => 'text_field' %></td>
+        <td><%= f.check_box :four, :class => 'text_field' %></td>
+        <td> <%= f.check_box :five, :class => 'text_field' %></td>
+      </tbody>
+    </div>
+      </table>
   <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
+    <%= f.label :name, 'Team Name', :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :name, :class => 'entry-form' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label 'Average MMR', :class => 'control-label' %>
+    <%= f.label :rank, 'Average Team Member MMR', :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :rank, :class => 'entry-form' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
+    <%= f.label :description, "Talk About Your Team", :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :description, :class => 'entry-form' %>
+      <%= f.text_area :description, :class => 'text-area', :cols => 30, :rows => 8 %>
     </div>
   </div>
   <div class="control-group">
@@ -29,8 +58,14 @@
       <%= f.select :language, options_for_select(["English", "Spanish", "Russian", "Mandarin", "Cantonese", "Korean", "Japanese", "Arabic", "Hindi", "Ukrainian","Romanian","Portuguese", "French", "German","Malay","Indonesian","Vietnamese","Persian","Turkish","Italian","Thai","Polish","Tagalog","Khmer","Hungarian","Greek","Czech","Swedish","Belarusian", "Other"]), {}, :class => 'entry-form' %>
     </div>
   </div>
+
   <div class="control-group">
-    <%= f.label :defaultMessage, :class => 'control-label' %>
+    <%= f.label :style, 'Type of Play', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :style, options_for_select(["Any", "Pubs", "Comp", "Learning"]), {}, :class => 'entry-form' %>
+      </div>
+  <div class="control-group">
+    <%= f.label :defaultMessage, 'Team Website - optional', :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :defaultMessage, :class => 'entry-form' %>
     </div>
@@ -47,3 +82,4 @@
                 teams_path, :class => 'btn' %>
   </div>
 <% end %>
+    </center>

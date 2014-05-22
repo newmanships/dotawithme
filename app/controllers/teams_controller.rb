@@ -5,6 +5,7 @@ class TeamsController < ApplicationController
   # GET /teams.json
   def index
     @teams = Team.all
+    
   end
 
   # GET /teams/1
@@ -15,10 +16,19 @@ class TeamsController < ApplicationController
   # GET /teams/new
   def new
     @team = Team.new
+      if session.key? :current_user  
+    
+    else
+      redirect_to '/auth/steam'
+    end
   end
 
   # GET /teams/1/edit
   def edit
+    @team = Team.find(params[:id])
+    if session[:current_user][:uid] != @team[:teamSteamID]
+        redirect_to root_url
+    end
   end
 
   # POST /teams
@@ -69,6 +79,6 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:name, :rank, :description, :location, :language, :defaultMessage, :leaderSteamID, :username)
+      params.require(:team).permit(:one, :two, :three, :four, :five, :name, :rank, :description, :location, :language, :defaultMessage, :leaderSteamID, :username, :style)
     end
 end
