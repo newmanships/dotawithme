@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521230948) do
+ActiveRecord::Schema.define(version: 20140522035659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140521230948) do
     t.string   "email"
     t.integer  "solommr"
     t.string   "style",         default: "Any"
+    t.string   "languageTwo",   default: "None"
   end
 
   create_table "searches", force: true do |t|
