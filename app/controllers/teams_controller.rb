@@ -26,7 +26,7 @@ class TeamsController < ApplicationController
   # GET /teams/1/edit
   def edit
     @team = Team.find(params[:id])
-    if session[:current_user][:uid] != @team[:teamSteamID]
+    if session[:current_user][:uid] != @team[:leaderSteamID]
         redirect_to root_url
     end
   end
