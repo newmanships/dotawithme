@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522035659) do
+ActiveRecord::Schema.define(version: 20140531211136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "messages", force: true do |t|
+    t.string   "recipient"
+    t.string   "from"
+    t.text     "note"
+    t.integer  "player_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "players", force: true do |t|
     t.boolean  "one"
@@ -65,6 +74,7 @@ ActiveRecord::Schema.define(version: 20140522035659) do
     t.boolean  "three"
     t.boolean  "four"
     t.boolean  "five"
+    t.string   "languageTwo",    default: "None"
   end
 
 end
