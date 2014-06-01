@@ -58,6 +58,13 @@
       <%= f.select :language, options_for_select(["English", "Spanish", "Russian", "Mandarin", "Cantonese", "Korean", "Japanese", "Arabic", "Hindi", "Ukrainian","Romanian","Portuguese", "French", "German","Malay","Indonesian","Vietnamese","Persian","Turkish","Italian","Thai","Polish","Tagalog","Khmer","Hungarian","Greek","Czech","Swedish","Belarusian", "Other"]), {}, :class => 'entry-form' %>
     </div>
   </div>
+  
+  <div class="control-group">
+    <%= f.label :languageTwo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :languageTwo, options_for_select(["English", "Spanish", "Russian", "Mandarin", "Cantonese", "Korean", "Japanese", "Arabic", "Hindi", "Ukrainian","Romanian","Portuguese", "French", "German","Malay","Indonesian","Vietnamese","Persian","Turkish","Italian","Thai","Polish","Tagalog","Khmer","Hungarian","Greek","Czech","Swedish","Belarusian", "Other"]), {}, :class => 'entry-form' %>
+    </div>
+  </div>
 
   <div class="control-group">
     <%= f.label :style, 'Type of Play', :class => 'control-label' %>

@@ -52,15 +52,17 @@
   </tbody>
   </table>
 <div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              teams_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_team_path(@team), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              team_path(@team),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+  <% if session.key? :current_user and session[:current_user][:uid] == team.leaderSteamID %>
+          <%= link_to 'Edit', edit_team_path(team), :class => 'btn btn-primary' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      team_path(team),
+                      :title => "Remove your listing?",
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Remove your listing?')) },
+                      :class => 'btn btn-mini btn-danger' %>   
+          <% else %>  
+          <%= link_to "Add Steam Friend", "steam://friends/add/" + @team.leaderSteamID, :class => 'btn btn-primary' %>
+          <% end %>
 </div>
   </div>
 </center>

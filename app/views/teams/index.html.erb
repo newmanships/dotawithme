@@ -13,9 +13,10 @@
       <th><%= link_to model_class.human_attribute_name(:Offlane), "http://dotawithme.com/players?three=true" %></th>
       <th><%= link_to model_class.human_attribute_name(:Jungle), "http://dotawithme.com/players?four=true" %></th>
       <th><%= link_to model_class.human_attribute_name(:Support), "http://dotawithme.com/players?five=true" %></th>
-      <th>Average Team MMR</th>
+      <th>Average MMR</th>
       <th><%= model_class.human_attribute_name(:location) %></th>
       <th><%= model_class.human_attribute_name(:language) %></th>
+      <th>Second Language</th>
       <th>Leader's Name</th>
       <th>Type of Play</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -32,7 +33,8 @@
         <td><% if team.five? %><%= image_tag('checkmark.png')  %><% else %> <%= image_tag('redx.png') %><% end %></td>
         <td><%= team.rank %></td>
         <td><%= team.location %></td>
-        <td><%= team.language %></td>       
+        <td><%= team.language %></td> 
+        <td><%= team.languageTwo %></td>
         <td><%= link_to "#{team.username}", "http://dotabuff.com/players/" + team.leaderSteamID %></td>
         <td><%= link_to team.style, root_path( team.style, :by_style => team.style) %></td>
         <td>
