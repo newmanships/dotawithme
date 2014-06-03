@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
-
-<p>
+<center><br><br>
+  
+<p><h5>
   <strong>Recipient:</strong>
   <%= @message.recipient %>
-</p>
+  </h5></p>
 
-<p>
+<p><h5>
   <strong>From:</strong>
   <%= @message.from %>
-</p>
+  </h5></p>
 
-<p>
+<p><h5>
   <strong>Note:</strong>
   <%= @message.note %>
-</p>
+  </h5></p>
 
-<%= link_to 'Edit', edit_message_path(@message) %> |
-<%= link_to 'Back', messages_path %>
+<%= link_to 'Back', messages_path %> 
+<% if session.key? :current_user and session[:current_user][:nickname] == @message.recipient %>
+| <%= link_to 'Reply', new_message_path(:id => @message.from)  %>
+<% end %>
+</center>

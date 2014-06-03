@@ -18,9 +18,6 @@ respond_to :js, :html
   def index
     @players = apply_scopes(Player.all.paginate(:page => params[:page], :order => 'created_at DESC', :per_page => 20)).all
    
-    
-  
-
    
   #<td><%= link_to player.username, :controller => 'main', :action => 'stats', :accountID => player.playerSteamID %></td>
     #needs added to view to link to account
@@ -29,8 +26,7 @@ respond_to :js, :html
   # GET /players/1
   # GET /players/1.json
    def show
-     @players = apply_scopes(Player.all.paginate(:page => params[:page], :per_page => 20)).all
-     
+     @player = Player.find(params[:id])
    end
 
   # GET /players/new

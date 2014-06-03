@@ -9,6 +9,7 @@
 <%= link_to 'Teams', "/teams" %>
 <%= link_to 'Search', "/searches/new" %>
 <p><% if session.key? :current_user %>
+  <%= link_to 'Messages', '/messages' %>
     <%= link_to 'Sign Out', main_logout_path%>
   <% else %>
   <%= link_to image_tag("http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_small.png"), '/auth/steam' %>

@@ -48,8 +48,8 @@
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Remove your listing?')) },
                       :class => 'btn btn-mini btn-danger' %>   
           <% else %>  
-          <%= link_to "Add Steam Friend", "steam://friends/add/" + team.leaderSteamID, :class => 'btn btn-primary' %>
-          <%= link_to 'New Message', new_message_path(:id => team.leaderSteamID ) %>
+          
+          <%= link_to 'Message', new_message_path(:id => team.username), :class => 'btn btn-primary' %>
 
           <% end %>
       

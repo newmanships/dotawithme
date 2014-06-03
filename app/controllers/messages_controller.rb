@@ -4,18 +4,34 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
-    @players = Player.all
+    if session.key? :current_user
+      @messages = Message.all(:order => 'created_at DESC')
+      @players = Player.all
+    else
+      redirect_to root_url
+    end
   end
 
   # GET /messages/1
   # GET /messages/1.json
   def show
+    # Ensure someone is logged in to view messages - makes them private
+    if session.key? :current_user
+      #only show ones from you or to you
+    unless session[:current_user][:nickname] == @message[:recipient] or session[:current_user][:nickname] == @message[:from]
+        redirect_to root_url
+      end
+    else
+      redirect_to root_url
+    end
   end
 
   # GET /messages/new
   def new
-    @message = Message.new(:id => params[:id])
+    if params[:id].nil?
+      redirect_to root_url
+    end
+     @message = Message.new(:id => params[:id])
   end
 
   # GET /messages/1/edit
