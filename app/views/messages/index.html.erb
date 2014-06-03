@@ -1,8 +1,7 @@
-
+<%- model_class = Player -%>
 <div class="span2"></div>
 <div class="span8"><center>
 <h1>Inbox</h1>
-     <%= (session[:current_user][:username]) %>
 <table class="table">
   <thead>
     <tr>
@@ -17,8 +16,8 @@
     
     <% if ((session.key? :current_user) and (session[:current_user][:nickname] == message.recipient)) %>
       <tr> 
-        <td><%= message.recipient %></td>
-        <td><%= message.from %></td>
+        <td><%= link_to message.recipient, player_path(@players.find_by(:username => message.recipient)) %></td>
+        <td><%= link_to message.from, player_path(@players.find_by(:username => message.from)) %></td>
         <td><%= link_to truncate(message.note, :length => 20, :seperator => ' '), message %></td>
         <td><%= link_to 'Delete', message, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
      
@@ -46,8 +45,8 @@
     
     <% if ((session.key? :current_user) and (session[:current_user][:nickname] == message.from)) %>
       <tr> 
-        <td><%= message.recipient %></td>
-        <td><%= message.from %></td>
+        <td><%= link_to message.recipient, player_path(@players.find_by(:username => message.recipient)) %></td>
+        <td><%= link_to message.from, player_path(@players.find_by(:username => message.from)) %></td>
         <td><%= link_to truncate(message.note, :length => 20, :seperator => ' '), message %></td>
         <td><%= link_to 'Delete', message, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
      
