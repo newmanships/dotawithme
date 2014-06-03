@@ -1,10 +1,20 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+  
+    has_scope :one, :type => :boolean
+    has_scope :two, :type => :boolean
+    has_scope :three, :type => :boolean
+    has_scope :four, :type => :boolean
+    has_scope :five, :type => :boolean
+    has_scope :by_language
+    has_scope :by_location
+    has_scope :by_style
+    has_scope :by_languageTwo
 
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    @teams = apply_scopes(Team.all.paginate(:page => params[:page], :order => 'created_at DESC', :per_page => 20)).all
     
   end
 
@@ -79,6 +89,6 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.require(:team).permit(:one, :two, :three, :four, :five, :name, :rank, :description, :location, :language, :defaultMessage, :leaderSteamID, :username, :style)
+      params.require(:team).permit(:one, :two, :three, :four, :five, :name, :rank, :description, :location, :language, :defaultMessage, :leaderSteamID, :username, :style, :languageTwo)
     end
 end

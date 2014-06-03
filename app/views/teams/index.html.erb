@@ -1,6 +1,5 @@
 <%- model_class = Team -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 
 
@@ -8,15 +7,15 @@
   <thead>
     <tr>
       <th>Team Name</th>
-      <th><%= link_to model_class.human_attribute_name(:Carry), "http://dotawithme.com/players?one=true" %></th>
-      <th><%= link_to model_class.human_attribute_name(:Mid), "http://dotawithme.com/players?two=true" %></th>
-      <th><%= link_to model_class.human_attribute_name(:Offlane), "http://dotawithme.com/players?three=true" %></th>
-      <th><%= link_to model_class.human_attribute_name(:Jungle), "http://dotawithme.com/players?four=true" %></th>
-      <th><%= link_to model_class.human_attribute_name(:Support), "http://dotawithme.com/players?five=true" %></th>
-      <th>Average MMR</th>
-      <th><%= model_class.human_attribute_name(:location) %></th>
+    <th><%= link_to model_class.human_attribute_name(:Carry), "http://dotawithme.com/teams?one=true" %></th>
+<th><%= link_to model_class.human_attribute_name(:Mid), "http://dotawithme.com/teams?two=true" %></th>
+<th><%= link_to model_class.human_attribute_name(:Offlane), "http://dotawithme.com/teams?three=true" %></th>
+<th><%= link_to model_class.human_attribute_name(:Jungle), "http://dotawithme.com/teams?four=true" %></th>
+<th><%= link_to model_class.human_attribute_name(:Support), "http://dotawithme.com/teams?five=true" %></th>
+      <th>Average MMR</th>      
       <th><%= model_class.human_attribute_name(:language) %></th>
       <th>Second Language</th>
+      <th><%= model_class.human_attribute_name(:location) %></th>
       <th>Leader's Name</th>
       <th>Type of Play</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -32,9 +31,9 @@
         <td><% if team.four? %><%= image_tag('checkmark.png')  %><% else %> <%= image_tag('redx.png') %><% end %></td>
         <td><% if team.five? %><%= image_tag('checkmark.png')  %><% else %> <%= image_tag('redx.png') %><% end %></td>
         <td><%= team.rank %></td>
-        <td><%= team.location %></td>
-        <td><%= team.language %></td> 
-        <td><%= team.languageTwo %></td>
+        <td><%= link_to team.language, team_path( '', :by_language => team.language) %></td> 
+        <td><%= link_to team.languageTwo, team_path( '', :by_languageTwo => team.languageTwo) %></td>
+        <td><%= link_to team.location, team_path('', :by_location => team.location) %></td>
         <td><%= link_to "#{team.username}", "http://dotabuff.com/players/" + team.leaderSteamID %></td>
         <td><%= link_to team.style, root_path( team.style, :by_style => team.style) %></td>
         <td>
