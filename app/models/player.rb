@@ -13,5 +13,6 @@ class Player < ActiveRecord::Base
   scope :by_language, -> language { where(:language => language) }
   scope :by_location, -> location { where(:location => location) }
   scope :by_style, -> style {where(:style => style) }
+  has_many :messages
   
 end

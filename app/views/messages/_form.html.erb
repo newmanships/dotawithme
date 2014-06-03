@@ -12,12 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :recipient %><br>
-    <%= f.text_field :recipient %>
+    <%= f.hidden_field :recipient, :value => params[:id] %>
   </div>
   <div class="field">
-    <%= f.label :from %><br>
-    <%= f.text_field :from %>
+    <%= f.hidden_field :from, :value => session[:current_user][:nickname] %>
   </div>
   <div class="field">
     <%= f.label :note %><br>

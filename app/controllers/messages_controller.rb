@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @messages = Message.all
+    @players = Player.all
   end
 
   # GET /messages/1
@@ -14,11 +15,13 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = Message.new
+    @message = Message.new(:id => params[:id])
   end
 
   # GET /messages/1/edit
   def edit
+    @message = Message.find(params[:id])
+    
   end
 
   # POST /messages

@@ -5,6 +5,8 @@ Dotawithme::Application.routes.draw do
 
   resources :teams
   
+  resources :messages
+  
   
   get "main/index"
   get "main/stats"
