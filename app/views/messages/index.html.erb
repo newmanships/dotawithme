@@ -17,11 +17,11 @@
   <tbody>
     <% @messages.each do |message| %>
     <% @players.each do |player| %>
-    <% if session.key? :current_user and session[:current_user][:uid] == message.recipient or session[:current_user][:uid] == message.from %>
+    <% if ((session.key? :current_user) and (session[:current_user][:uid] == message.recipient or session[:current_user][:nickname] == message.from)) %>
       <tr> 
-        <td><% if message.recipient == player.playerSteamID %> <%= player.username %><% end %></td>
+        <td><%= player.username %></td>
         <td><%= message.from %></td>
-        <td><%= message.note %></td>
+        <td><%= truncate(message.note, :length => 20, :seperator => ' ') %></td>
         <td><%= link_to 'Show', message %></td>
         <td><%= link_to 'Edit', edit_message_path(message) %></td>
         <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>

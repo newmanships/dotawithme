@@ -52,10 +52,10 @@
   </tbody>
   </table>
 <div class="form-actions">
-  <% if session.key? :current_user and session[:current_user][:uid] == team.leaderSteamID %>
-          <%= link_to 'Edit', edit_team_path(team), :class => 'btn btn-primary' %>
+  <% if session.key? :current_user and session[:current_user][:uid] == @team.leaderSteamID %>
+          <%= link_to 'Edit', edit_team_path(@team), :class => 'btn btn-primary' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      team_path(team),
+                      team_path(@team),
                       :title => "Remove your listing?",
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Remove your listing?')) },
