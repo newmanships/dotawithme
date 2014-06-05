@@ -1,15 +1,15 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:edit, :update, :destroy]
-respond_to :js, :html
+  respond_to :js, :html
     has_scope :one, :type => :boolean
     has_scope :two, :type => :boolean
     has_scope :three, :type => :boolean
     has_scope :four, :type => :boolean
     has_scope :five, :type => :boolean
     has_scope :by_language
+    has_scope :by_languageTwo
     has_scope :by_location
     has_scope :by_style
-    has_scope :by_languageTwo
 
   # GET /players
   # GET /players.json

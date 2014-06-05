@@ -42,7 +42,7 @@
         <td><% if player.four? %><%= image_tag('checkmark.png')  %><% else %> <%= image_tag('redx.png') %><% end %></td>
         <td><% if player.five? %><%= image_tag('checkmark.png')  %><% else %> <%= image_tag('redx.png') %><% end %></td>
         <td><%= link_to player.language.titleize, root_path( player.language, :by_language => player.language) %></td>
-        <td><%= link_to player.languageTwo.titleize, root_path( player.language, :by_languageTwo => player.language) %></td>
+        <td><%= link_to player.languageTwo.titleize, root_path( player.languageTwo, :by_languageTwo => player.languageTwo) %></td>
         <td><%= link_to player.location.titleize, root_path( player.location, :by_location => player.location) %></td>
         <td><%= player[:solommr] %></td>
         <td><%= link_to player.style.titleize, root_path( player.style, :by_style => player.style) %></td>
