@@ -19,7 +19,17 @@ class Search < ActiveRecord::Base
     players = players.where("language = ? OR \"languageTwo\" = ?", language, language) if language.present?
     
     players = players.where(location: location) if location.present?
-    players = players.where(style: style) if style.present?
+    
+    if style.present? and style == 'Any'
+      players = players.where("style = ? OR style = ? OR style = ? OR style = ?", 'Any', 'Pubs', 'Comp', 'Learning')
+    elsif style.present? and style == 'Pubs' 
+      players = players.where("style = ? OR style = ?", 'Any', 'Pubs')
+    elsif style.present? and style == 'Comp'
+      players = players.where("style = ? OR style = ?", 'Any', 'Comp')
+    elsif style.present? and style == 'Learning'
+      players = players.where("style = ? OR style = ?", 'Any', 'Learning')
+    end
+        
     
     
   end
