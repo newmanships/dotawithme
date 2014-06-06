@@ -22,7 +22,7 @@ class SearchesController < ApplicationController
   private
   
   def search_params
-    params.require(:search).permit(:one, :two, :three, :four, :five, :language, :location, :style)
+    params.require(:search).permit(:one, :two, :three, :four, :five, :language, :location, :style, :languageTwo)
   end
 
  
