@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605234045) do
+ActiveRecord::Schema.define(version: 20150525015057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140605234045) do
     t.integer  "solommr"
     t.string   "style",         default: "Any"
     t.string   "languageTwo",   default: "None"
+    t.boolean  "online",        default: false
   end
 
   create_table "searches", force: true do |t|

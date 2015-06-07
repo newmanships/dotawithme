@@ -10,12 +10,12 @@
   <div class="align-right">  
     
   </div>
-
 <div class="contentwrapper">
 <div class="contentcolumn">
   <table class="table">
   <thead>
     <tr>
+	  <th>Online</th>
       <th><%= model_class.human_attribute_name(:username) %></th>
       <th><%= link_to model_class.human_attribute_name(:Carry), "http://dotawithme.com/players?one=true" %></th>
       <th><%= link_to model_class.human_attribute_name(:Mid), "http://dotawithme.com/players?two=true" %></th>
@@ -35,6 +35,7 @@
     <% @players.each do |player| %>
     
       <tr>
+	    <td><% if player.online? %><div class="green-circle"> <% else %> <div class="red-circle"> <% end %></div></td>
         <td><%= link_to player.username.titleize, "http://dotabuff.com/players/" + player.playerSteamID %></td>
         <td><% if player.one? %><%= image_tag('checkmark.png')  %><% else %> <%= image_tag('redx.png') %><% end %></td>
         <td><% if player.two? %><%= image_tag('checkmark.png')  %><% else %> <%= image_tag('redx.png') %><% end %></td>

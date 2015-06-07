@@ -48,7 +48,6 @@ gem 'jbuilder', '~> 1.2'
 
 # for pushing to heroku
 group :production, :staging do
-      gem 'pg'
       gem 'rails_12factor'
     end
 
@@ -69,4 +68,4 @@ gem 'unicorn'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-ruby "2.0.0"
+gem 'whenever', :require => false
